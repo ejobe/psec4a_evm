@@ -10,6 +10,11 @@ class EVM:
       self.dev.set_configuration()
       self.dev.reset()
 
+   def writeRegister(self, addr, value):
+      addr = addr & 0xFF
+      ret =self.dev.write(usbdev.EDPNT_WR, [(value & 0xFF), (value & 0xFF00) >> 8,  
+                                            (value & 0xFF0000) >> 16, addr])
+      return ret
 
    def readRegister(self, reg_addr, num_bytes=8, debug=False):
       '''
