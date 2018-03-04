@@ -3,7 +3,7 @@ import time
 import config.usb_device as usbdev
 import config.registers as reg
 
-class PSEC4AEval:
+class EVM:
 
    def __init__(self):
       self.dev = usb.core.find(idVendor=usbdev.VID, idProduct=usbdev.PID)
