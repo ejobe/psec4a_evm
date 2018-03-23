@@ -21,6 +21,7 @@ map = {
     'DLL_BIASP_DAC'   : 0x5D,
     'DLL_BIASN_DAC'   : 0x5E,
     
+    'PED_VOLTS' : 0x68,
 
     'SW_TRIG'   : 0x7C,
     'RESET'     : 0x7F,

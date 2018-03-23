@@ -1,4 +1,4 @@
-import config.registers as reg
+import registers as reg
 
 class PSEC4A:
     
