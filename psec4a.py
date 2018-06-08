@@ -40,3 +40,13 @@ class PSEC4A:
     def setComparatorBias(self, value):
         value = value & 0x3FF
         self.write(reg.map['COMP_BIAS_DAC'], value)     
+
+    def setXferResetMode(self, mode=1):
+        self.write(reg.map['XFER_RESET_MODE'], mode)
+
+    def setXferResetVoltage(self, value):
+        value = value & 0xFFFF #16 bit external DAC
+        self.write(reg.map['XFER_RESET_VOLTS'], value)     
+
+
+    

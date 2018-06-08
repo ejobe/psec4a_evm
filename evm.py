@@ -100,7 +100,6 @@ class EVM:
       external dac is 16 bits
       '''
       value = int(volts / self.ext_dac_ref_voltage * 0xFFFF)
-      print value
       self.writeRegister(reg.map['PED_VOLTS'], value)
 
    def readPedestalVoltage(self):
@@ -145,6 +144,7 @@ class EVM:
       for i, ped_voltage in enumerate(ped_voltages):
 
          self.setPedestalVoltage(ped_voltage)
+         time.sleep(1.5)
          set_voltage = self.readPedestalVoltage()
          
          sys.stdout.write('pedestal voltage is.....{:.2f} V\r'.format(set_voltage))
@@ -153,7 +153,7 @@ class EVM:
          pedestals = self.takePedestals(filename=None)
          
          out_array[i,0] = set_voltage
-         out_array[i,1:] = numpy.flatten(pedestals)
+         out_array[i,1:] = pedestals.flatten()
 
          scan_values.append(pedestals)
 
