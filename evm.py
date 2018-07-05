@@ -16,17 +16,20 @@ class EVM:
    psec4a_channels = 8
 
    def __init__(self):
+      #setup usb stuff
       self.dev = usb.core.find(idVendor=usbdev.VID, idProduct=usbdev.PID)
       if self.dev is None:
          print 'please connect board'
          sys.exit()
       self.dev.set_configuration()
       self.dev.reset()
+      
+      #initialize PSEC4A stuff
       self.psec4a = psec4a.PSEC4A(self)
       self.mode = 0
       self.getReadoutMode()
 
-      self.pedestals = numpy.zeros((8,1056))
+      self.pedestals = numpy.zeros((self.psec4a_channels, self.psec4a_samples))
 
    def writeRegister(self, addr, value):
       '''write firmware register: 32 bits
