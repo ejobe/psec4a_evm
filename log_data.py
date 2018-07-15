@@ -46,12 +46,15 @@ def data_logger(nevents, sw_trig=True, outfile=None, ped_subtract=False):
 
 if __name__=='__main__':
 
-    import matplotlib.pyplot as plt
+#    import matplotlib.pyplot as plt
 
-    data = data_logger(100, outfile='test', ped_subtract=True)
+    events = int(sys.argv[2])
+    outfile = sys.argv[1]
+
+    data = data_logger(events, outfile=outfile, ped_subtract=True)
     
-    ch_to_plot = 5
-    for i in range(100):
-        plt.figure(1)
-        plt.plot(data[i][ch_to_plot])
-    plt.show()
+#    ch_to_plot = 5
+#    for i in range(100):
+#        plt.figure(1)
+#        plt.plot(data[i][ch_to_plot])
+#    plt.show()
