@@ -234,6 +234,8 @@ class EVM:
 
    ###########
    def set_default_config(self):
+      '''load default configs -- TODO pull these from a config file
+      '''
       self.setReadoutMode(1)
       self.psec4a.setXferResetMode(1)
       self.psec4a.setComparatorBias(0x140) #(0x200)

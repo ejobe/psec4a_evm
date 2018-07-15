@@ -50,7 +50,8 @@ if __name__=='__main__':
 
     data = data_logger(100, outfile='test', ped_subtract=True)
     
+    ch_to_plot = 5
     for i in range(100):
         plt.figure(1)
-        plt.plot(data[i][5])
+        plt.plot(data[i][ch_to_plot])
     plt.show()
